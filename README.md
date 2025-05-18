@@ -74,3 +74,8 @@ dataset/
     └── ...
 ```
 ---
+
+## Entregable
+
+1. Week 2: El archivo se encuentra en este repositorio, el enlace es el siguiente:
+   - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/data-processing.ipynb)
