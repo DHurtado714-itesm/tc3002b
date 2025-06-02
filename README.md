@@ -4,7 +4,7 @@ Este proyecto tiene como objetivo desarrollar un modelo de red neuronal convoluc
 
 ## Reporte Final del Proyecto
 
-**[Reporte]**(https://github.com/DHurtado714-itesm/tc3002b/blob/main/report.pdf)
+[Reporte](https://github.com/DHurtado714-itesm/tc3002b/blob/main/report.pdf)
 
 ---
 
