@@ -128,9 +128,9 @@ Se utilizó el conjunto de validación para evaluar el rendimiento del modelo. S
 
 ## Resultados
 
-- Precisión del modelo: 0.869 (86.9%)
-- Recall: 0.869 (86.9%)
-- F1-score: 0.869 (86.9%)
+- Precisión del modelo: 0.877 (87.7%)
+- Recall: 0.877 (87.7%)
+- F1-score: 0.877 (87.7%)
 
 - Matriz de confusión: Se generó una matriz de confusión para visualizar el rendimiento del modelo en cada clase.
 
@@ -142,3 +142,5 @@ Se utilizó el conjunto de validación para evaluar el rendimiento del modelo. S
    - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/data-processing.ipynb)
 2. Week 3: El archivo se encuentra en este repositorio, el enlace es el siguiente:
    - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/main.ipynb)
+2. Week 4: El archivo se encuentra en este repositorio, el enlace es el siguiente:
+   - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/vgg_model.ipynb)
