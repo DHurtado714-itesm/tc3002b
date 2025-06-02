@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clasificador de Escenas Naturales</title>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h1 class="text-2xl font-bold text-center mb-6">
+        Clasificador de Escenas Naturales
+      </h1>
+      <p class="text-center text-gray-600 mb-4">
+        Selecciona una imagen para clasificarla como
+        edificio, bosque, glaciar, montaña, mar o calle.
+      </p>
+
+      <!-- Input de archivo -->
+      <div class="mb-6">
+        <input
+          type="file"
+          id="imageInput"
+          name="file"
+          accept="image/*"
+          class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 mt-2"
+        />
+      </div>
+
+      <!-- Vista previa de la imagen -->
+      <div class="flex justify-center mb-6">
+        <img
+          id="preview"
+          class="max-w-xs h-auto hidden"
+          alt="Vista previa de la imagen"
+        />
+      </div>
+
+      <!-- Botón para predecir -->
+      <button
+        id="predictButton"
+        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:bg-gray-400"
+        disabled
+      >
+        Predecir Categoría
+      </button>
+
+      <!-- Área para mostrar el resultado -->
+      <div id="result" class="text-center text-lg font-semibold mt-6"></div>
+    </div>
+
+    <script>
+      const imageInput = document.getElementById("imageInput");
+      const predictButton = document.getElementById("predictButton");
+      const preview = document.getElementById("preview");
+      const result = document.getElementById("result");
+
+      // Manejar selección de archivo
+      imageInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          handleImage(file);
+        } else {
+          predictButton.disabled = true;
+          preview.classList.add("hidden");
+        }
+      });
+
+      // Función para manejar la imagen
+      function handleImage(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result;
+          preview.classList.remove("hidden");
+          predictButton.disabled = false;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Manejar la predicción
+      predictButton.addEventListener("click", async () => {
+        result.innerText = "Procesando...";
+        const formData = new FormData();
+        formData.append("file", imageInput.files[0]);
+
+        try {
+          const response = await fetch("/predict", {
+            method: "POST",
+            body: formData,
+          });
+          const data = await response.json();
+
+          if (response.ok) {
+            result.innerText = `Predicción: ${data.class} (${data.confidence}% de confianza)`;
+          } else {
+            result.innerText = `Error: ${data.detail}`;
+          }
+        } catch (error) {
+          result.innerText = "Error al conectar con el servidor";
+          console.error(error);
+        }
+      });
+    </script>
+  </body>
+</html>
