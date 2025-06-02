@@ -2,6 +2,10 @@
 
 Este proyecto tiene como objetivo desarrollar un modelo de red neuronal convolucional (CNN) para clasificar imágenes de escenas naturales utilizando el Intel Image Classification Dataset. Este conjunto de datos, disponible en Kaggle, contiene aproximadamente 25,000 imágenes de 150x150 píxeles divididas en seis categorías: buildings, forest, glacier, mountain, sea y street. El objetivo es entrenar, evaluar y optimizar un modelo CNN en TensorFlow/Keras, con un flujo de trabajo que incluye preprocesamiento, aumento de datos, entrenamiento, evaluación, visualización de resultados y la capacidad de guardar y reanudar el entrenamiento del modelo. El proyecto se implementó en Google Colab, utilizando imágenes almacenadas en Google Drive.
 
+## Reporte Final del Proyecto
+
+**[Reporte]**(https://github.com/DHurtado714-itesm/tc3002b/blob/main/report.pdf)
+
 ---
 
 ## ✅ Requisitos: Semana 2
@@ -79,6 +83,7 @@ dataset-landmark/
 ## 🛠️ Modelo y Evaluación
 
 ### Arquitectura del Modelo
+
 Se utilizó una red neuronal convolucional (CNN) para la clasificación de imágenes. La arquitectura del modelo se basa en capas convolucionales y densas, con funciones de activación ReLU y softmax.
 Se utilizó la función de pérdida `categorical_crossentropy` y el optimizador `Adam`. La métrica de evaluación fue la precisión (`accuracy`).
 
@@ -103,7 +108,7 @@ Se utilizó la función de pérdida `categorical_crossentropy` y el optimizador 
     # Conv block 3: 64 filtros
     model.add(Conv2D(64, (3,3), activation='relu', padding='same'))
     model.add(MaxPooling2D((2,2)))  # reduce a 10×10
-    
+
     # Conv block 3: 128 filtros
     model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
     model.add(MaxPooling2D((2,2)))  # reduce a 10×10
@@ -142,5 +147,5 @@ Se utilizó el conjunto de validación para evaluar el rendimiento del modelo. S
    - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/data-processing.ipynb)
 2. Week 3: El archivo se encuentra en este repositorio, el enlace es el siguiente:
    - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/main.ipynb)
-2. Week 4: El archivo se encuentra en este repositorio, el enlace es el siguiente:
+3. Week 4: El archivo se encuentra en este repositorio, el enlace es el siguiente:
    - [Google Collab Notebook](https://github.com/DHurtado714-itesm/tc3002b/blob/main/vgg_model.ipynb)
